@@ -1,0 +1,10 @@
+.board {
+    /* width: 100%; */
+    display: flex;
+    
+}
+
+.board-container {
+    display: flex;
+    margin-top: 20px;
+}

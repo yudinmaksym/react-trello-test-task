@@ -1,0 +1,10 @@
+export const ADD_TO_DB = 'ADD_TO_DB';
+export const ADD_CARD_TO_DB = 'ADD_CARD_TO_DB';
+export const GET_COL_DB = 'GET_COL_DB';
+export const GET_CARD_DB = 'GET_CARD_DB';
+export const UPDATE_COL = 'UPDATE_COL';
+export const DELETE_COLUMN = 'DELETE_COLUMN';
+export const DELETE_CARD = 'DELETE_CARD';
+export const UPDATE_CARD = 'UPDATE_CARD';
+export const UPDATE_CARDS_DRAGGING='UPDATE_CARDS_DRAGGING';
+export const UPDATE_COLUMNS_DRAGGING='UPDATE_COLUMNS_DRAGGING';

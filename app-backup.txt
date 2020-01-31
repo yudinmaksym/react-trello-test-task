@@ -1,0 +1,92 @@
+constructor() {
+    super();
+    this.state = {
+      columns: [],
+      cards: []
+    };
+  }
+
+  addInformationToDb(dbname,data) {
+    db.table(dbname)
+      .add(data).then(function () {
+        console.log("success");
+      }).catch(function(e) {
+        console.log("Error");
+      });
+  }
+
+  getDataFromDb(dbname) {
+    db.table(dbname)
+      .toArray()
+      .then((data) => {
+        this.setState(() => {
+          return {[dbname]: data};
+        });
+    });
+  }
+
+  deleteColumnFromDb(itemid) {
+    db.table("columns")
+      .delete(itemid)
+      .then(() => {
+        const newList = this.state.columns.filter((column) => column.id !== itemid);
+        this.setState(() => {
+          return {columns: newList};
+        })
+      });
+
+    db.table("cards")
+      .where('columnId')
+      .equals(itemid)
+      .delete()
+      .then(() => {
+        const newList = this.state.cards.filter((card) => card.columnId !== itemid);
+        this.setState(() => {
+          return {cards: newList};
+        })
+      });
+  }
+
+  deleteCardFromDb(itemid) {
+    db.table("cards")
+      .delete(itemid)
+      .then(() => {
+        const newList = this.state.cards.filter((card) => card.id !== itemid);
+        this.setState(() => {
+          return {cards: newList};
+        })
+      });
+  }
+
+
+  componentDidMount() {
+    var self = this;
+
+    window.ee.on("addNewColumn", function(item) {
+      self.addInformationToDb("columns", item);
+      self.getDataFromDb("columns");
+    });
+
+    window.ee.on("addNewCard", function(item) {
+      self.addInformationToDb("cards", item);
+      self.getDataFromDb("cards");
+    });
+
+    window.ee.on("handleDeleteColumn", function(item) {
+      self.deleteColumnFromDb(item);
+    });
+
+    window.ee.on("handleDeleteCard", function(item) {
+      self.deleteCardFromDb(item);
+    });
+
+    self.getDataFromDb("columns");
+    self.getDataFromDb("cards");
+  }
+
+  componentWillUnmount() {
+    window.ee.off("addNewColumn");
+    window.ee.off("addNewCard");
+    window.ee.off("handleDeleteColumn");
+    window.ee.off("handleDeleteCard");
+  }

@@ -1,0 +1,31 @@
+.column {
+    width: 250px;
+    border: 1px solid lightgrey;
+    padding: 10px 10px 60px;
+    margin: 0 15px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    position: relative;
+}
+
+.column__title {
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.column__delete-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.column__wrapper {
+    padding: 0 0 30px;
+}

@@ -1,0 +1,11 @@
+.board {
+    display: flex;
+    padding: 20px 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.board .board-container {
+    display: flex;
+    /* padding: 10px 0; */
+}

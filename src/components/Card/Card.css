@@ -1,0 +1,64 @@
+.card {
+    border: 1px solid #e0e0e0;
+    background-color: lightblue;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.card .card__title {
+    margin: 7px 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.card__add-new-card {
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+}
+
+.card__add-new-card input {
+    padding: 7px 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #eeeeee;
+    flex: 1 1;
+}
+
+.card__add-new-card button {
+    background-color: lightgreen;
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid lightgreen;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card__delete-btn {
+    position: absolute;
+    left: 0px;
+    bottom: 3px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.card__time-user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px 0 5px;
+}
+
+.card__time-user img {
+    border-radius: 50%;
+    margin-left: 10px;
+    
+}
+
+.card-modal__card-desc {
+    min-height: 150px;
+}
